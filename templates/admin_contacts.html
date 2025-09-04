@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section style="padding: 40px;">
+  <h2 style="text-align:center; color:#10B981;">Contact Submissions</h2>
+  <table style="width:100%; border-collapse: collapse; margin-top:20px;">
+    <thead>
+      <tr style="background:#0c1322; color:white;">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Company</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in contacts %}
+      <tr style="color:white; background:#11182e;">
+        <td>{{ c[0] }}</td>
+        <td>{{ c[1] }}</td>
+        <td>{{ c[2] }}</td>
+        <td>{{ c[3] }}</td>
+        <td>{{ c[4] }}</td>
+        <td>{{ c[5] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

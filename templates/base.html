@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ COMPANY_NAME }}{% if page %} • {{ page|capitalize }}{% endif %}</title>
+    <meta name="description" content="Digital solutions in {{ COMPANY_NAME }} brand colors." />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+      :root {
+        --brand-primary: {{ BRAND_PRIMARY }};
+        --brand-accent: {{ BRAND_ACCENT }};
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          display: none; /* hidden by default on mobile */
+          flex-direction: column;
+          gap: 14px;
+          width: 100%;
+          padding: 12px 0;
+          background: rgba(10,15,25,0.95);
+          border-top: 1px solid var(--border);
+        }
+
+        .nav.show {
+          display: flex;
+        }
+
+        /* Show hamburger on mobile and align with logo + company name */
+        .hamburger {
+          display: block;
+          margin-right: 8px;
+        }
+
+        .navbar-left {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="navbar">
+        
+        <!-- Left Section (Hamburger + Brand) -->
+        <div class="navbar-left">
+          <!-- Mobile Hamburger -->
+          <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+          <!-- Brand -->
+          <a class="brand flex items-center gap-3" href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='assets/images/pragnaware_img.png') }}" 
+                 alt="{{ COMPANY_NAME }} Logo" 
+                 class="h-10 w-auto">
+            <div class="brand-name text-white font-bold text-lg">{{ COMPANY_NAME }}</div>
+          </a>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="nav" id="menu">
+          <a href="{{ url_for('home') }}"class="btn">Home</a>
+          <a href="{{ url_for('services') }}"class="btn">Services</a>
+          <a href="{{ url_for('about') }}"class="btn">About</a>
+          <a href="{{ url_for('contact') }}" class="btn">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <<footer class="site-footer">
+  <div class="footer-inner flex items-center justify-between gap-4 flex-wrap">
+    <!-- Copyright -->
+    <div>© {{ COMPANY_NAME }} {{ 2025 }}</div>
+
+    <!-- Three images -->
+    <div class="footer-images flex gap-3">
+  <a href="https://www.facebook.com/share/1B68giSh69/?mibextid=wwXIfr" target="_blank">
+    <img src="{{ url_for('static', filename='assets/images/facebook.png') }}" alt="Facebook" class="h-6 w-6">
+  </a>
+  <a href="https://www.instagram.com/pragnaware_solutions?igsh=MTBtY3dpNHBlZXE4NA==" target="_blank">
+    <img src="{{ url_for('static', filename='assets/images/instagram.png') }}" alt="Instagram" class="h-6 w-6">
+  </a>
+  <a href="https://x.com/pragnaware21?s=11" target="_blank">
+    <img src="{{ url_for('static', filename='assets/images/twitter.png') }}" alt="Twitter" class="h-6 w-6">
+  </a>
+</div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+</script>
+
+  </body>
+</html>

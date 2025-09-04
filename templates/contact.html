@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="section">
+  <!-- Contact Title -->
+  <h2 data-reveal style="text-align:center; color:green; font-weight:bold;">
+    Contact
+  </h2>
+  <p class="lead" data-reveal style="text-align:center;">
+    Tell us about your project.
+  </p>
+
+  <!-- One Card -->
+  <div class="card animate-slideUp" 
+       style="padding:24px; background:#0c1322; border-radius:16px; color:#fff; max-width:900px; margin:0 auto;">
+
+    <!-- Top Section: Map + Contact Info -->
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <!-- Map -->
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <iframe src="https://maps.google.com/maps?q=INQ%20Innovation,%20Indiranagar%20Bangalore&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="150" frameborder="0" style="border:0;" allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Contact Info -->
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:12px;">
+        <!-- Phone -->
+        <div style="display:flex; align-items:center;">
+          <img src="{{ url_for('static', filename='assets/images/telephone.png') }}" 
+               alt="Phone" style="width:40px; height:40px; margin-right:6px;">
+          <a href="tel:+919845136362" style="font-size:18px; font-weight:500; color:#fff; text-decoration:none;">
+            +91 9845136362
+          </a>
+        </div>
+
+        <!-- Email -->
+        <div style="display:flex; align-items:center;">
+          <img src="{{ url_for('static', filename='assets/images/email.png') }}" 
+               alt="Email" style="width:40px; height:40px; margin-right:9px;">
+          <a href="mailto:connect@pragnaware.com" style="font-size:18px; font-weight:500; color:#fff; text-decoration:none;">
+            connect@pragnaware.com
+          </a>
+        </div>
+      </div>
+    </div> <!-- ✅ close grid -->
+
+    <!-- Bottom Section: Form -->
+    <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+      <!-- Row 1 -->
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <input name="name" placeholder="Your name" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+        <input name="email" placeholder="Email" type="email" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+      </div>
+
+      <!-- Row 2 -->
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <input name="phone" placeholder="Phone number" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+        <input name="company" placeholder="Company name" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+      </div>
+
+      <!-- Row 3 -->
+      <div class="mb-4">
+        <textarea name="message" placeholder="Project details" rows="5" required
+                  class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600"></textarea>
+      </div>
+
+      <!-- Send Button -->
+      <div class="text-center">
+        <button type="submit" class="btn primary">
+          Send
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section" style="padding-top: 0">
+  <div class="card cta">
+    <div class="cta-text">
+      <h3 data-reveal>Ready to collaborate?</h3>
+      <p data-reveal>Our solutions are designed to align seamlessly with your goals and brand values.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Animations -->
+<style>
+@keyframes slideUp { 
+  from { opacity:0; transform:translateY(40px);} 
+  to { opacity:1; transform:translateY(0);} 
+}
+.animate-slideUp { animation: slideUp 1s ease-out both; }
+
+.contact-form input,
+.contact-form textarea {
+  outline: none;
+}
+
+.btn.primary {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn.primary:hover {
+  background-color: #45a049;
+}
+</style>
+{% endblock %}

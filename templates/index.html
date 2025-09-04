@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="left" data-reveal>
+    <div class="badge">Transform Your Business with AI-Driven Solutions</div>
+ <h1 id="typed-text"></h1>
+
+<script>
+  const text = "Pragnaware Solutions where knowledge meets innovation";
+  const greenPart = "Pragnaware Solutions where";
+  const bluePart = "knowledge meets innovation";
+
+  let index = 0;
+  let typedText = "";
+  const target = document.getElementById("typed-text");
+
+  function typeEffect() {
+    if (index < text.length) {
+      typedText += text[index];
+      target.innerHTML = typedText
+        .replace(greenPart, `<span style="color:green;">${greenPart}</span>`)
+        .replace(bluePart, `<span style="color:blue;">${bluePart}</span>`);
+      index++;
+      setTimeout(typeEffect, 100); // typing speed
+    }
+  }
+
+  typeEffect();
+</script>
+
+    <p>
+     Innovative AI solutions shaping the future of business with smarter, faster digital transformation.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn primary" href="{{ url_for('services') }}">Explore Services</a>
+      <a class="btn" href="#work">See Work</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>50+</strong><br/>Projects</div>
+      <div class="stat"><strong>15+</strong><br/>Industries</div>
+      <div class="stat"><strong>100%</strong><br/>Client Focus</div>
+    </div>
+  </div>
+
+  <div class="hero-visual" data-reveal>
+    <div class="hero-badge">Animated</div>
+    <div class="hero-slide active" style="background-image: linear-gradient(120deg, var(--brand-primary), transparent), url('{{ url_for('static', filename='assets/images/1.jpg') }}');"></div>
+    <div class="hero-slide" style="background-image: linear-gradient(120deg, var(--brand-accent), transparent), url('{{ url_for('static', filename='assets/images/5.jpg') }}');"></div>
+  </div>
+</section>
+<section id="work" class="section">
+  <h2 data-reveal style="text-align:center; color:green;">What we do</h2>
+<p class="lead" data-reveal style="text-align:center;">
+  End-to-end digital services aligned to your brand.
+</p>
+
+  <div class="grid-3">
+  <div class="card" data-reveal>
+    <div class="badge">Design</div>
+    <h3 class="semi-bold">UI/UX & Branding</h3>
+    <p>Create accessible, beautiful interfaces in your blue–green palette with motion that feels alive.</p>
+  </div>
+  <div class="card" data-reveal>
+    <div class="badge">Build</div>
+    <h3 class="semi-bold">Web & Mobile Apps</h3>
+    <p>Fast, secure, SEO-friendly apps with clean code and maintainable architecture.</p>
+  </div>
+  <div class="card" data-reveal>
+    <div class="badge">Scale</div>
+    <h3 class="semi-bold">Cloud & DevOps</h3>
+    <p>Deploy, observe, and scale reliably—no drama, just uptime.</p>
+  </div>
+  <div class="card" data-reveal>
+    <div class="badge">Automation | NLP</div>
+    <h3 class="semi-bold">Voice-First CRM Platform</h3>
+    <p>Enable smarter customer engagement with real-time voice, AI-driven insights, and seamless CRM integration.</p>
+  </div>
+  <div class="card" data-reveal>
+    <div class="badge">Analytics | Big Data</div>
+    <h3 class="semi-bold">Data Intelligence Dashboard</h3>
+    <p>Built interactive dashboards with predictive insights for a retail chain, increasing sales forecasting accuracy by 70%.</p>
+  </div>
+  <div class="card" data-reveal>
+    <div class="badge">Learn</div>
+    <h3 class="semi-bold">Smart E-Learning Platform</h3>
+    <p>Delivered an AI-personalized learning management system used by 50k+ students with adaptive content delivery.</p>
+  </div>
+</div>
+</section>
+
+<style>
+  .semi-bold {
+    font-weight: 500; /* Medium weight (not too bold, not too light) */
+  }
+</style>
+
+<section class="section" style="padding:40px 0; max-width:600px; margin:0 auto;">
+  <div class="card animate-slideUp" 
+       style="padding:24px; background:#0c1322; border-radius:16px; color:#fff;">
+
+    <h2 style="text-align:center; color:#10B981; font-weight:bold; margin-bottom:20px;">
+      Get in Touch
+    </h2>
+
+    <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <input name="name" placeholder="Your name" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+        <input name="email" placeholder="Email" type="email" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <input name="phone" placeholder="Phone number" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+        <input name="company" placeholder="Company name" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+      </div>
+
+      <div class="mb-4">
+        <textarea name="message" placeholder="Project details" rows="5" required
+                  class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600"></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn primary">Send</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+@keyframes slideUp { 
+  from { opacity:0; transform:translateY(40px);} 
+  to { opacity:1; transform:translateY(0);} 
+}
+.animate-slideUp { animation: slideUp 1s ease-out both; }
+
+.contact-form input,
+.contact-form textarea { outline: none; }
+
+.btn.primary {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn.primary:hover { background-color: #45a049; }
+</style>
+
+<section class="section" style="padding-top: 0">
+  <div class="card cta">
+    <div class="cta-text">
+      <h3 data-reveal>Ready to collaborate?</h3>
+      <p data-reveal>Our solutions are designed to align seamlessly with your goals and brand values.</p>
+    </div>
+    <div>
+      <a class="btn primary" href="{{ url_for('contact') }}">Contact us</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

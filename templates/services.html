@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="section">
+  <h2 data-reveal style="text-align:center; color:green;">Services</h2>
+<p class="lead" data-reveal style="text-align:center; max-width:800px; margin:0 auto;">
+  "What Our Agency We craft intelligent, future-ready solutions that blend AI, creativity, and technology — helping your business scale faster, innovate smarter, and stay ahead in a digital-first world."
+</p>
+
+
+
+
+  <div class="grid-3">
+
+    <!-- 1: Brand Websites -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/2.jpg') }}" alt="Brand Websites">
+      <h3>Brand Websites</h3>
+      <p>Responsive, animated, SEO-friendly sites with clean components.</p>
+    </div>
+
+    <!-- 2: Dashboards & Portals -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/4.jpg') }}" alt="Dashboards">
+      <h3>Dashboards & Portals</h3>
+      <p>Data-rich interfaces, authentication, and role-based access.</p>
+    </div>
+
+    <!-- 3: E-commerce -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/7.jpg') }}" alt="E-commerce">
+      <h3>E-commerce</h3>
+      <p>Catalogs, carts, payments, and order tracking—end-to-end.</p>
+    </div>
+
+    <!-- 4: AI Business Solutions -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/sld 1.jpg') }}" alt="AI Solutions">
+      <h3>AI-Powered Business Solutions</h3>
+      <p>Transform workflows with automation, predictive analytics, and scalable AI strategies.</p>
+    </div>
+
+    <!-- 5: Digital Transformation -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/sld 2.jpg') }}" alt="Digital Transformation">
+      <h3>Digital Transformation & Cloud</h3>
+      <p>Modernize infrastructure, migrate seamlessly, and optimize cloud workflows.</p>
+    </div>
+
+    <!-- 6: Content Creation -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/sld 4.jpg') }}" alt="Content Creation">
+      <h3>Content Creation & Knowledge Consulting</h3>
+      <p>Creative campaigns, technical writing, and knowledge management.</p>
+    </div>
+
+    <!-- 7: Technology Development -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/sld 5.png') }}" alt="Software Development">
+      <h3>Technology & Software Development</h3>
+      <p>Custom apps, APIs, and enterprise-grade software solutions.</p>
+    </div>
+
+    <!-- 8: EdTech -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/sld 6.jpg') }}" alt="EdTech">
+      <h3>Educational Technology (EdTech)</h3>
+      <p>Interactive platforms, LMS, and digital learning ecosystems.</p>
+    </div>
+
+    <!-- 9: Certification -->
+    <div class="card" data-reveal>
+      <img src="{{ url_for('static', filename='assets/images/sld 7.jpg') }}" alt="Certification">
+      <h3>Certification Programs</h3>
+      <p>Industry-standard certifications and structured learning paths.</p>
+    </div>
+
+  </div>
+</section>
+ 
+<section class="section" style="padding:40px 0; max-width:600px; margin:0 auto;">
+  <div class="card animate-slideUp" 
+       style="padding:24px; background:#0c1322; border-radius:16px; color:#fff;">
+
+    <h2 style="text-align:center; color:#10B981; font-weight:bold; margin-bottom:20px;">
+      Get in Touch
+    </h2>
+
+    <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <input name="name" placeholder="Your name" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+        <input name="email" placeholder="Email" type="email" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <input name="phone" placeholder="Phone number" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+        <input name="company" placeholder="Company name" required 
+               class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600">
+      </div>
+
+      <div class="mb-4">
+        <textarea name="message" placeholder="Project details" rows="5" required
+                  class="w-full p-3 rounded-lg bg-[#11182e] text-white border border-gray-600"></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn primary">Send</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+@keyframes slideUp { 
+  from { opacity:0; transform:translateY(40px);} 
+  to { opacity:1; transform:translateY(0);} 
+}
+.animate-slideUp { animation: slideUp 1s ease-out both; }
+
+.contact-form input,
+.contact-form textarea { outline: none; }
+
+.btn.primary {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn.primary:hover { background-color: #45a049; }
+</style>
+
+
+<section class="section" style="padding-top: 0">
+  <div class="card cta">
+    <div class="cta-text">
+      <h3 data-reveal>Ready to collaborate?</h3>
+      <p data-reveal>Our solutions are designed to align seamlessly with your goals and brand values.</p>
+    </div>
+    <div>
+      <a class="btn primary" href="{{ url_for('contact') }}">Contact us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,      // Show 3 cards in row
+    spaceBetween: 30,      // Gap between cards
+    loop: true,            // Infinite loop
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,  // Mobile
+      },
+      768: {
+        slidesPerView: 2,  // Tablet
+      },
+      1024: {
+        slidesPerView: 3,  // Desktop
+      },
+    },
+  });
+</script>
+{% endblock %}
