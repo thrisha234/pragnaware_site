@@ -13,69 +13,134 @@
 
 
   <div class="grid-3">
+<style>
+  .card p {
+    display: none; /* hide content initially */
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
 
-    <!-- 1: Brand Websites -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/2.jpg') }}" alt="Brand Websites">
-      <h3>Brand Websites</h3>
-      <p>Responsive, animated, SEO-friendly sites with clean components.</p>
-    </div>
+  .card.active p {
+    display: block; /* show when active */
+    animation: fadeIn 0.3s ease-in-out;
+  }
 
-    <!-- 2: Dashboards & Portals -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/4.jpg') }}" alt="Dashboards">
-      <h3>Dashboards & Portals</h3>
-      <p>Data-rich interfaces, authentication, and role-based access.</p>
-    </div>
+  .card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-    <!-- 3: E-commerce -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/7.jpg') }}" alt="E-commerce">
-      <h3>E-commerce</h3>
-      <p>Catalogs, carts, payments, and order tracking—end-to-end.</p>
-    </div>
+  .card:hover {
+    transform: scale(1.02);
+  }
 
-    <!-- 4: AI Business Solutions -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/sld 1.jpg') }}" alt="AI Solutions">
-      <h3>AI-Powered Business Solutions</h3>
-      <p>Transform workflows with automation, predictive analytics, and scalable AI strategies.</p>
-    </div>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<style>
+  .card p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.8;
+    text-align: left;          /* Align everything neatly to the left */
+    margin: 0;
+    padding-left: 5px;         /* Small padding for neatness */
+  }
 
-    <!-- 5: Digital Transformation -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/sld 2.jpg') }}" alt="Digital Transformation">
-      <h3>Digital Transformation & Cloud</h3>
-      <p>Modernize infrastructure, migrate seamlessly, and optimize cloud workflows.</p>
-    </div>
+  /* Optional: ensure emojis align with text properly */
+  .card p br {
+    content: "";
+    display: block;
+    margin-bottom: 6px;       /* space between lines */
+  }
+</style>
 
-    <!-- 6: Content Creation -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/sld 4.jpg') }}" alt="Content Creation">
-      <h3>Content Creation & Knowledge Consulting</h3>
-      <p>Creative campaigns, technical writing, and knowledge management.</p>
-    </div>
+<!-- 1: Artificial Intelligence & Automation -->
+<div class="card" data-reveal onclick="toggleCard(this)">
+  <img src="{{ url_for('static', filename='assets/images/2.jpg') }}" alt="AI & Automation">
+  <h3>Artificial Intelligence & Automation</h3>
+  <p>
+    🎙️ IVIN (Interactive Voice Intelligence Nexus) – voice-first engagement platform.<br>
+    🤖 NLP-driven chatbots, voice assistants, and text analytics.<br>
+    📊 Predictive analytics & BI dashboards.<br>
+    ⚙️ AI & RPA-powered process automation.
+  </p>
+</div>
 
-    <!-- 7: Technology Development -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/sld 5.png') }}" alt="Software Development">
-      <h3>Technology & Software Development</h3>
-      <p>Custom apps, APIs, and enterprise-grade software solutions.</p>
-    </div>
+<!-- 2: Web & Mobile Applications -->
+<div class="card" data-reveal onclick="toggleCard(this)">
+  <img src="{{ url_for('static', filename='assets/images/sld 5.png') }}" alt="Web & Mobile">
+  <h3>Web & Mobile Applications</h3>
+  <p>
+    💻 Custom enterprise & SME-focused web development.<br>
+    📱 Mobile apps for iOS, Android & cross-platform (Flutter/React Native).<br>
+    🛒 Scalable e-commerce platforms.<br>
+    🔗 API-first integrations.
+  </p>
+</div>
 
-    <!-- 8: EdTech -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/sld 6.jpg') }}" alt="EdTech">
-      <h3>Educational Technology (EdTech)</h3>
-      <p>Interactive platforms, LMS, and digital learning ecosystems.</p>
-    </div>
+<!-- 3: UI/UX & Branding -->
+<div class="card" data-reveal onclick="toggleCard(this)">
+  <img src="{{ url_for('static', filename='assets/images/uiux.jpg') }}" alt="UI/UX & Branding">
+  <h3>UI/UX & Branding</h3>
+  <p>
+    🖌️ User-first interface design.<br>
+    🌟 Branding & storytelling strategies.<br>
+    🎯 Creative digital-first campaigns.<br>
+    🔍 Experience mapping & usability testing.
+  </p>
+</div>
 
-    <!-- 9: Certification -->
-    <div class="card" data-reveal>
-      <img src="{{ url_for('static', filename='assets/images/sld 7.jpg') }}" alt="Certification">
-      <h3>Certification Programs</h3>
-      <p>Industry-standard certifications and structured learning paths.</p>
-    </div>
+<!-- 4: Ads & Video Content -->
+<div class="card" data-reveal onclick="toggleCard(this)">
+  <img src="{{ url_for('static', filename='assets/images/ads.png') }}" alt="Ads & Video">
+  <h3>Ads & Video Content</h3>
+  <p>
+    🎥 AI-powered video creation for brands.<br>
+    🌍 Domestic & global creative ad campaigns.<br>
+    📢 Explainer & product videos.<br>
+    📈 Digital marketing assets for engagement.
+  </p>
+</div>
+
+<!-- 5: Client Advocacy & Market Enablement -->
+<div class="card" data-reveal onclick="toggleCard(this)">
+  <img src="{{ url_for('static', filename='assets/images/sld 1.jpg') }}" alt="Client Advocacy">
+  <h3>Client Advocacy & Market Enablement</h3>
+  <p>
+    🏢 On-ground engagement in domestic markets (Coimbatore, Erode, etc.).<br>
+    🔧 Bridging customer requirements with technical solutions.<br>
+    📌 Tailored digital strategies for SMEs & enterprises.<br>
+    🤝 Long-term partnership building with trust & transparency.
+  </p>
+</div>
+
+<!-- 6: Digital Transformation & Cloud -->
+<div class="card" data-reveal onclick="toggleCard(this)">
+  <img src="{{ url_for('static', filename='assets/images/sld 2.jpg') }}" alt="Digital Transformation">
+  <h3>Digital Transformation & Cloud</h3>
+  <p>
+    ☁️ Modernize infrastructure with cloud-first strategies.<br>
+    🚀 Seamless cloud migration for enterprises.<br>
+    ⚡ Optimized workflows with automation.<br>
+    🔮 Future-ready digital ecosystems.
+  </p>
+</div>
+
+
+<script>
+  function toggleCard(card) {
+    // Close all other cards
+    document.querySelectorAll('.card').forEach(c => {
+      if (c !== card) c.classList.remove('active');
+    });
+    // Toggle current one
+    card.classList.toggle('active');
+  }
+</script>
 
   </div>
 </section>
