@@ -4,29 +4,36 @@
   <div class="left" data-reveal>
     <div class="badge">Transform Your Business with AI-Driven Solutions</div>
 
-    <!-- Hero Title -->
+<!-- Hero Title -->
 <h1 id="typed-text">
-  <span style="color:#45a049; font-weight:bold;">Pragnaware Solutions</span>
-  <span id="animated-text" style="color:#0768FF; font-weight:bold; font-size:0.6em;"></span>
+  <span style="color:#0768FF; font-weight:bold;">Pragnaware</span>
+  <span style="color:#45a049; font-weight:bold;">Solutions</span>
+  <span id="animated-text" style="
+    font-weight:bold;
+    font-size:0.6em;
+    background: linear-gradient(90deg, #edf6f8ff, #fbfbfbff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  "></span>
 </h1>
 
+<!-- Typing Animation Script -->
+<!-- Typing Animation Script -->
+<script>
+  const animatedText = " where knowledge meets innovation";
+  let index = 0;
+  const target = document.getElementById("animated-text");
 
-    <!-- Typing Animation Script -->
-    <script>
-      const animatedText = " where knowledge meets innovation";
-      let index = 0;
-      const target = document.getElementById("animated-text");
+  function typeEffect() {
+    if (index < animatedText.length) {
+      target.innerHTML += animatedText[index];
+      index++;
+      setTimeout(typeEffect, 100); // typing speed
+    }
+  }
 
-      function typeEffect() {
-        if (index < animatedText.length) {
-          target.innerHTML += animatedText[index];
-          index++;
-          setTimeout(typeEffect, 100); // typing speed
-        }
-      }
-
-      typeEffect();
-    </script>
+  typeEffect();
+</script>
 
     <p>
       Innovative AI solutions shaping the future of business with smarter, faster digital transformation.

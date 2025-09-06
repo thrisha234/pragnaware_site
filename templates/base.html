@@ -14,8 +14,8 @@
 
     <style>
       :root {
-        --brand-primary: {{ BRAND_PRIMARY }};
-        --brand-accent: {{ BRAND_ACCENT }};
+        --brand-blue: #116FB7;
+        --brand-green: #4CA847;
       }
 
       .navbar {
@@ -82,7 +82,10 @@
             <img src="{{ url_for('static', filename='assets/images/pragnaware_img.png') }}" 
                  alt="{{ COMPANY_NAME }} Logo" 
                  class="h-10 w-auto">
-            <div class="brand-name text-white font-bold text-lg">{{ COMPANY_NAME }}</div>
+            <div class="brand-name font-bold text-lg">
+              <span style="color: var(--brand-blue);">Pragnaware</span>
+              <span style="color: var(--brand-green);">Solutions</span>
+            </div>
           </a>
         </div>
 
@@ -97,6 +100,7 @@
     </header>
 
     {% block content %}{% endblock %}
+ 
 
     <footer class="site-footer">
   <div class="footer-inner flex items-center justify-between gap-4 flex-wrap">
